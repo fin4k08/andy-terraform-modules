@@ -6,8 +6,8 @@ This module create a simple Azure Resource Group.
 
 | Name | Description | Type | Required |
 |------|-------------|------|----------|
-| 'resource_group_name' | The name of the resource group | 'string' | :white-tick: |
-| 'location' | The location of the resource group | 'string' | :white-tick: |
+| 'resource_group_name' | The name of the resource group | 'string' | \u2705 |
+| 'location' | The location of the resource group | 'string' | \u2705 |
 
 ##Outputs
 
