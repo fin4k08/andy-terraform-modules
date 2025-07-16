@@ -1,4 +1,4 @@
-resource "random_string" "name" {
+resource "random_string" "suffix" {
   length  = 6
   upper   = false
   special = false
