@@ -97,7 +97,7 @@ variable "error_404_document" {
   default = "404.html"
 
   validation {
-    condition     = can(regex("\\.html$", var.index_document))
+    condition     = can(regex("\\.html$", var.error_404_document))
     error_message = "index_document must end with '.html'"
   }
 }
