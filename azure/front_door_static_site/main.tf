@@ -33,7 +33,7 @@ resource "azurerm_cdn_frontdoor_origin_group" "this" {
 
 resource "azurerm_cdn_frontdoor_origin" "this" {
   for_each = {
-    for origin in var.origins : origins.name => origin
+    for origin in var.origins : origin.name => origin
   }
 
   name                           = each.value.name
@@ -52,7 +52,7 @@ resource "azurerm_cdn_frontdoor_route" "this" {
   name                          = "${var.endpoint_name}-route"
   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.this.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.this.id
-  cdn_frontdoor_origin_ids      = [for o in azurem_cdn_frontdoor_origin.this : o.value.id]
+  cdn_frontdoor_origin_ids      = [for o in azurerm_cdn_frontdoor_origin.this : o.value.id]
 
   supported_protocols    = ["Https"]
   https_redirect_enabled = "true"
