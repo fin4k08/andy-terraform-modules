@@ -3,7 +3,7 @@ output "storage_account_name" {
   value       = module.storage.storage_account_name
 }
 
-output "static_site_url" {
+output "primary_web_host" {
   description = "The static website endpoint"
-  value       = module.storage.primary_web_endpoint
+  value       = module.storage.primary_web_host
 }
