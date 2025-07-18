@@ -5,6 +5,5 @@ resource "azurerm_cdn_frontdoor_custom_domain" "this" {
 
   tls {
     certificate_type = var.certificate_type
-    protocol_type = var.protocol_type
   }
 }
