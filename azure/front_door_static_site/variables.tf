@@ -46,6 +46,13 @@ variable "origins" {
     condition     = length(var.origins) > 0
     error_message = "At least one origin must be defined in the origins list."
   }
+
+  validation {
+    condition = alltrue([
+      for origin in var.origins : contains(keys(origin), "certificate_name_check_enabled")
+    ])
+    error_message = "Each origin must explicitly include 'certificate_name_check_enabled' due to provider requirements."
+  }
 }
 
 variable "health_probe" {
