@@ -3,7 +3,7 @@ variable "zone_name" {
   type        = string
 
     validation {
-    condition     = can(regex("^([a-zA-Z0-9][-a-zA-Z0-9]*\\.)+[a-zA-Z]{2,}$", var.domain))
+    condition     = can(regex("^([a-zA-Z0-9][-a-zA-Z0-9]*\\.)+[a-zA-Z]{2,}$", var.zone_name))
     error_message = "Must be a valid domain name (e.g., example.com)."
   }
 }
