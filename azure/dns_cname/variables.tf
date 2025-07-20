@@ -3,7 +3,7 @@ variable "record_name" {
   type        = string
 
   validation {
-    condition     = can(regex("^[a-zA-Z0-9-]+$" , var.record_name))
+    condition     = can(regex("^[a-zA-Z0-9-]+$", var.record_name))
     error_message = "record_name must only contain alphanumeric characters or hyphens."
   }
 }

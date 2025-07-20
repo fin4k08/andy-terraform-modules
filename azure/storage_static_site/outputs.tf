@@ -8,7 +8,7 @@ output "primary_web_host" {
   value       = module.storage.primary_web_host
 }
 
-output "primary_web_host_clean"{
+output "primary_web_host_clean" {
   description = "The static website without trailing slash"
-  value =  trimsuffix(module.storage.primary_web_host, "/")
+  value       = trimsuffix(module.storage.primary_web_host, "/")
 }

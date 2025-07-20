@@ -30,15 +30,15 @@ variable "endpoint_name" {
 
 variable "origins" {
   type = list(object({
-    name                             = string
-    host_name                        = string
-    origin_host_header               = optional(string)
-    priority                         = optional(number)
-    weight                           = optional(number)
-    enabled                          = optional(bool)
-    https_port                       = optional(number)
-    http_port                        = optional(number)
-    certificate_name_check_enabled   = optional(bool)
+    name                           = string
+    host_name                      = string
+    origin_host_header             = optional(string)
+    priority                       = optional(number)
+    weight                         = optional(number)
+    enabled                        = optional(bool)
+    https_port                     = optional(number)
+    http_port                      = optional(number)
+    certificate_name_check_enabled = optional(bool)
   }))
   description = "List of origins. Must include at least one."
 
