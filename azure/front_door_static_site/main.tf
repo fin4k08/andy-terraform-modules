@@ -54,7 +54,7 @@ resource "azurerm_cdn_frontdoor_route" "this" {
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.this.id
   cdn_frontdoor_origin_ids      = [for o in azurerm_cdn_frontdoor_origin.this : o.id]
 
-  supported_protocols    = ["Https"]
+  supported_protocols    = ["Http", "Https"]
   https_redirect_enabled = "true"
   forwarding_protocol    = "HttpsOnly"
   patterns_to_match      = ["/*"]
