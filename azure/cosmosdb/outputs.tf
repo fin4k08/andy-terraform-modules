@@ -11,6 +11,5 @@ output "container_name" {
 }
 
 output "connection_string" {
-  value     = azurerm_cosmosdb_account.this.connection_strings[0]
-  sensitive = true
+  value = azurerm_cosmosdb_account.this.primary_sql_connection_string
 }

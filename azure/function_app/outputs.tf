@@ -14,6 +14,6 @@ output "storage_account_name" {
   value = module.storage.storage_account_name
 }
 
-output "storage_account_access_key" {
+output "primary_access_key" {
   value = module.storage.primary_access_key
 }

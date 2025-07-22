@@ -7,4 +7,6 @@ output "primary_web_host" {
   description = "Static website endpoint (if enabled)"
 }
 
-
+output "primary_access_key" {
+  value = azurerm_storage_account.this.primary_access_key
+}
