@@ -8,16 +8,6 @@ variable "cosmos_connection_string" {
   description = "Connection string for Cosmos DB"
 }
 
-variable "storage_account_access_key" {
-  type        = string
-  description = "Access key for the Function App's storage account"
-}
-
-variable "storage_account_name" {
-  type        = string
-  description = "Name of the storage account used by the Function App"
-}
-
 variable "function_app_name" {
   type        = string
   description = "Name of the Function App"
