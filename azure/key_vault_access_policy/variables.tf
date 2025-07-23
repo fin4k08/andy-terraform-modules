@@ -21,11 +21,6 @@ variable "tenant_id" {
 variable "object_id" {
   description = "The object ID of the user, app, or identity to grant access"
   type        = string
-
-  validation {
-    condition     = can(regex("^[-0-9a-fA-F]{36}$", var.object_id))
-    error_message = "Object ID must be a valid GUID."
-  }
 }
 
 variable "secret_permissions" {
