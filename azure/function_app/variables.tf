@@ -10,7 +10,12 @@ variable "cosmos_connection_string" {
 
 variable "function_app_name" {
   type        = string
-  description = "Name of the Function App"
+  description = "The name of the Function App"
+
+  validation {
+    condition     = can(regex("^[a-zA-Z0-9-]{1,60}$", var.function_app_name))
+    error_message = "Function App name must be 1–60 characters, letters, numbers, and hyphens only."
+  }
 }
 
 variable "resource_group_name" {
