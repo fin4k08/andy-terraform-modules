@@ -19,8 +19,9 @@ variable "secrets" {
 
   validation {
     condition = alltrue([
-      for k, v in var.secrets : length(trim(k)) > 0 && length(trim(v)) > 0
+      for k, v in var.secrets : length(trim(k, " ")) > 0 && length(trim(v, " ")) > 0
     ])
-    error_message = "Secret names and values cannot be empty."
+    error_message = "All secret keys and values must be non-empty strings."
   }
+
 }
