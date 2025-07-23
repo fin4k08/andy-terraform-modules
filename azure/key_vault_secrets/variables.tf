@@ -24,4 +24,6 @@ variable "secrets" {
     error_message = "All secret keys and values must be non-empty strings."
   }
 
+  sensitive = true
+
 }
