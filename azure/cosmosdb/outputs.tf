@@ -21,11 +21,3 @@ output "endpoint" {
 output "primary_key" {
   value = azurerm_cosmosdb_account.this.primary_key
 }
-
-output "database_name" {
-  value = azurerm_cosmosdb_sql_database.this.name
-}
-
-output "container_name" {
-  value = azurerm_cosmosdb_sql_container.this.name
-}
