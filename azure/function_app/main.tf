@@ -14,6 +14,10 @@ resource "azurerm_linux_function_app" "this" {
   service_plan_id            = var.app_service_plan_id
   storage_account_name       = module.storage.storage_account_name
   storage_account_access_key = module.storage.primary_access_key
+  
+  identity {
+    type = "SystemAssigned"
+  }
 
   site_config {
     application_stack {
@@ -21,11 +25,16 @@ resource "azurerm_linux_function_app" "this" {
     }
   }
 
-  app_settings = {
-    FUNCTIONS_WORKER_RUNTIME = "node"
-    WEBSITE_RUN_FROM_PACKAGE = "1"
-    # Optional: Cosmos DB or custom keys will go here
-  }
+  app_settings = merge(
+    {
+      FUNCTIONS_WORKER_RUNTIME = "node"
+      WEBSITE_RUN_FROM_PACKAGE = "1"
+    },
+    {
+      for key, secret in var.app_settings_secrets :
+      key => "@Microsoft.KeyVault(SecretUri=${var.kv_uri}/secrets/${secret})"
+    }
+  )
 
   tags = var.tags
 }

@@ -11,14 +11,3 @@ resource "azurerm_key_vault" "this" {
 
   tags = var.tags
 }
-
-# Optional: Assign access to the Function App (or other identities)
-resource "azurerm_key_vault_access_policy" "function_app" {
-  count = var.assign_function_access ? 1 : 0
-
-  key_vault_id = azurerm_key_vault.this.id
-  tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = var.function_app_identity
-
-  secret_permissions = ["get", "list"]
-}

@@ -3,11 +3,6 @@ variable "app_service_plan_id" {
   description = "ID of the App Service Plan"
 }
 
-variable "cosmos_connection_string" {
-  type        = string
-  description = "Connection string for Cosmos DB"
-}
-
 variable "function_app_name" {
   type        = string
   description = "The name of the Function App"
@@ -37,4 +32,15 @@ variable "tags" {
 variable "storage_account_prefix" {
   type        = string
   description = "Prefix for the storage account name"
+}
+
+variable "kv_uri" {
+  type        = string
+  description = "The URI of the Key Vault to reference secrets from"
+}
+
+variable "app_settings_secrets" {
+  type        = map(string)
+  description = "Map of app setting keys to Key Vault secret names"
+  default     = {}
 }
