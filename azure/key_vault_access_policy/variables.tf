@@ -26,12 +26,12 @@ variable "object_id" {
 variable "secret_permissions" {
   description = "List of secret permissions to assign"
   type        = list(string)
-  default     = ["get", "list"]
+  default     = ["Get", "List"]
 
   validation {
     condition = alltrue([
       for p in var.secret_permissions :
-      contains(["get", "list", "set", "delete", "backup", "restore", "recover", "purge"], p)
+      contains(["Get", "List", "Set", "Delete", "Backup", "Restore", "Recover", "Purge"], p)
     ])
     error_message = "Invalid value in secret_permissions. Must be one of: get, list, set, delete, backup, restore, recover, purge."
   }
@@ -46,8 +46,8 @@ variable "key_permissions" {
     condition = alltrue([
       for p in var.key_permissions :
       contains([
-        "backup", "create", "decrypt", "delete", "encrypt", "get", "import", "list", "purge", "recover",
-        "restore", "sign", "unwrapKey", "update", "verify", "wrapKey"
+        "Backup", "Create", "Decrypt", "Delete", "Encrypt", "Get", "Import", "List", "Purge", "Recover",
+        "Restore", "Sign", "UnwrapKey", "Update", "Verify", "WrapKey"
       ], p)
     ])
     error_message = "Invalid key_permissions value. See Azure docs for valid key operations."
@@ -63,8 +63,8 @@ variable "certificate_permissions" {
     condition = alltrue([
       for p in var.certificate_permissions :
       contains([
-        "backup", "create", "delete", "get", "import", "list", "managecontacts", "getissuers",
-        "listissuers", "manageissuers", "purge", "recover", "restore", "setissuers", "update"
+        "Backup", "Create", "Delete", "Get", "Import", "List", "Managecontacts", "Getissuers",
+        "Listissuers", "Manageissuers", "Purge", "Recover", "Restore", "Setissuers", "Update"
       ], p)
     ])
     error_message = "Invalid certificate_permissions value. Must match Azure certificate permission list."
