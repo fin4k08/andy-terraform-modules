@@ -14,7 +14,7 @@ resource "azurerm_linux_function_app" "this" {
   service_plan_id            = var.app_service_plan_id
   storage_account_name       = module.storage.storage_account_name
   storage_account_access_key = module.storage.primary_access_key
-  
+
   identity {
     type = "SystemAssigned"
   }
