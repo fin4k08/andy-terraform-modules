@@ -62,3 +62,15 @@ variable "function_app_identity" {
     error_message = "If assign_function_access is true, function_app_identity must not be empty."
   }
 }
+
+variable "rbac_admin_principal_ids" {
+  description = "Optional list of principal object IDs to assign the 'Key Vault Administrator' role"
+  type        = list(string)
+  default     = []
+}
+
+variable "rbac_secrets_officer_principal_ids" {
+  description = "Optional list of principal object IDs to assign the 'Key Vault Secrets Officer' role"
+  type        = list(string)
+  default     = []
+}
