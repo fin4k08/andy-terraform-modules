@@ -43,7 +43,7 @@ variable "route_name" {
   description = "The name to assign to the Front Door route."
 
   validation {
-    condition     = length(trim(var.route_name)) > 0
+    condition     = length(trim(var.route_name, " ")) > 0
     error_message = "route_name must not be empty or just whitespace."
   }
 }
@@ -53,7 +53,7 @@ variable "custom_domain_name" {
   description = "The name of the Front Door custom domain resource."
 
   validation {
-    condition     = length(trim(var.custom_domain_name)) > 0
+    condition     = length(trim(var.custom_domain_name, " ")) > 0
     error_message = "custom_domain_name must not be empty."
   }
 }

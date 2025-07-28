@@ -17,3 +17,7 @@ output "origin_group_id" {
   description = "Origin group ID"
   value       = azurerm_cdn_frontdoor_origin_group.this.id
 }
+
+output "origin_ids" {
+  value = [for o in azurerm_cdn_frontdoor_origin.this : o.id]
+}
