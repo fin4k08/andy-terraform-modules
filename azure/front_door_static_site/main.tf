@@ -48,15 +48,4 @@ resource "azurerm_cdn_frontdoor_origin" "this" {
   certificate_name_check_enabled = lookup(each.value, "certificate_name_check_enabled", false)
 }
 
-resource "azurerm_cdn_frontdoor_route" "this" {
-  name                          = "${var.endpoint_name}-route"
-  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.this.id
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.this.id
-  cdn_frontdoor_origin_ids      = [for o in azurerm_cdn_frontdoor_origin.this : o.id]
 
-  supported_protocols    = ["Http", "Https"]
-  https_redirect_enabled = "true"
-  forwarding_protocol    = "HttpsOnly"
-  patterns_to_match      = ["/*"]
-  link_to_default_domain = true
-}
