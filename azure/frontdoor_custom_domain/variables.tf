@@ -48,16 +48,6 @@ variable "route_name" {
   }
 }
 
-variable "endpoint_name" {
-  type        = string
-  description = "The name of the Front Door endpoint (used for naming consistency)."
-
-  validation {
-    condition     = length(trim(var.endpoint_name)) > 0
-    error_message = "endpoint_name must not be empty."
-  }
-}
-
 variable "custom_domain_name" {
   type        = string
   description = "The name of the Front Door custom domain resource."
