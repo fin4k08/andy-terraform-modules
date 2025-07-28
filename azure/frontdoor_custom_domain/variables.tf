@@ -38,3 +38,26 @@ variable "certificate_type" {
     error_message = "certificate_type must be either 'ManagedCertificate' or 'CustomerCertificate'."
   }
 }
+variable "endpoint_name" {
+  type        = string
+  description = "Name of the Front Door endpoint"
+
+  validation {
+    condition     = can(regex("^[a-zA-Z0-9-]{1,90}$", var.endpoint_name))
+    error_message = "Endpoint name must be 1–90 characters, letters, numbers, and hyphens only."
+  }
+}
+variable "endpoint_id" {
+  description = "The ID of the Front Door endpoint"
+  type        = string
+}
+
+variable "origin_group_id" {
+  description = "The ID of the Front Door origin group"
+  type        = string
+}
+
+variable "origin_ids" {
+  description = "List of origin resource IDs"
+  type        = list(string)
+}
