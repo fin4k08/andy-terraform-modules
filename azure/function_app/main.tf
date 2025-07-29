@@ -32,7 +32,7 @@ resource "azurerm_linux_function_app" "this" {
     },
     {
       for key, secret in var.app_settings_secrets :
-      key => "@Microsoft.KeyVault(SecretUri=${var.kv_uri}/secrets/${secret})"
+      key => "@Microsoft.KeyVault(SecretUri=${trim(var.kv_uri, "/")}/secrets/${secret})"
     }
   )
 
